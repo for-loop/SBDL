@@ -8,6 +8,5 @@ def spark():
     return get_spark_session("LOCAL")
 
 
-def test_blank_test(spark):
-    print(spark.version)
+def test_spark_version_is_3_3_0(spark):
     assert spark.version == "3.3.0"
