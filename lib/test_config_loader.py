@@ -6,12 +6,7 @@ from lib import ConfigLoader
 LOCAL_ENV = "LOCAL"
 
 
-@pytest.fixture(scope="session")
-def spark():
-    return get_spark_session(LOCAL_ENV)
-
-
-def test_sbdl_config_is_read_correctly_for_local(spark):
+def test_sbdl_config_is_read_correctly_for_local():
     conf = ConfigLoader.get_config(LOCAL_ENV)
     assert conf["kafka.topic"] == "sbdl_kafka_cloud"
 
