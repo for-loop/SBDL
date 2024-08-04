@@ -10,3 +10,7 @@ def spark():
 
 def test_spark_version_is_3_3_0(spark):
     assert spark.version == "3.3.0"
+
+
+def test_spark_session_is_local(spark):
+    assert "local" in spark.sparkContext.getConf().get("spark.master")
