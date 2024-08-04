@@ -3,7 +3,7 @@ import sys
 from lib import Utils
 from lib.logger import Log4j
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     if len(sys.argv) < 3:
         print("Usage: sbdl {local, qa, prod} {load_date} : Arguments are missing")
