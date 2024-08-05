@@ -7,22 +7,5 @@ class Extractor(metaclass=abc.ABCMeta):
         self.spark = spark
 
     @abc.abstractmethod
-    def extract(self):
+    def extract(self, source_location) -> DataFrame:
         pass
-
-
-class HiveExtractor(Extractor):
-
-    def extract(self, table) -> DataFrame:
-        return self.spark.sql(f"SELECT * FROM {table}")
-
-
-class CsvExtractor(Extractor):
-
-    def extract(self, path) -> DataFrame:
-        return (
-            self.spark.read.format("csv")
-            .option("header", "true")
-            .option("inferSchema", "true")
-            .load(path)
-        )
