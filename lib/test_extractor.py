@@ -3,6 +3,7 @@ import pytest
 from pyspark.sql import DataFrame
 from lib.Utils import get_spark_session
 from lib.Extractor import *
+from lib.ExtractorFactory import ExtractorFactory
 
 
 @pytest.fixture(scope="session")
@@ -35,7 +36,7 @@ def hive(spark):
 
 def test_extract_creates_dataframe_of_nine_rows(spark):
     conf = {"enable.hive": "false"}
-    f = Factory(conf)
+    f = ExtractorFactory(conf)
     e = f.make_extractor(spark)
     df = e.extract("test_data/accounts/")
 
@@ -46,7 +47,7 @@ def test_extract_creates_dataframe_of_nine_rows(spark):
 
 def test_extract_from_hive_table_when_enable_hive_config_is_true(spark, hive):
     conf = {"enable.hive": "true"}
-    f = Factory(conf)
+    f = ExtractorFactory(conf)
     e = f.make_extractor(spark)
     df = e.extract("test_db.accounts")
 
