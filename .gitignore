@@ -5,3 +5,6 @@ lib/__pycache__/*
 __pycache__/*
 .venv
 .pytest_cache
+metastore_db/*
+spark-warehouse/*
+derby.log
