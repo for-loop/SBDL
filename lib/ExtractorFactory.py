@@ -1,4 +1,5 @@
-from lib.Extractor import HiveExtractor, CsvExtractor
+from lib.CsvExtractor import CsvExtractor
+from lib.HiveExtractor import HiveExtractor
 
 
 class ExtractorFactory:

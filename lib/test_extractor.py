@@ -2,7 +2,9 @@ import pytest
 
 from pyspark.sql import DataFrame
 from lib.Utils import get_spark_session
-from lib.Extractor import *
+
+from lib.CsvExtractor import CsvExtractor
+from lib.HiveExtractor import HiveExtractor
 from lib.ExtractorFactory import ExtractorFactory
 
 
