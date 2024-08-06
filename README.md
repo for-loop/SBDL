@@ -41,15 +41,17 @@ pip freeze
 
 and replace contents of `requirements.txt`
 
-### Run
-
-Select `sbdl_main.py` and click Run button. The following error will show:
+### Run locally
 
 ```bash
-Usage: sbdl {local, qa, prod} {load_date} : Arguments are missing
+python sbdl_main.py local -d 2022-08-02
 ```
 
-Append ` local 2022-08-02` and execute the command again
+#### Help
+
+```bash
+python sbdl_main.py -h
+```
 
 ### Unit test
 
