@@ -1,11 +1,8 @@
-import sys
-
 from lib.ArgParser import ArgParser
 from lib.Utils import get_spark_session
 from lib.logger import Log4j
 from lib.ConfigLoader import get_config
 from lib.ExtractorFactoryImpl import ExtractorFactoryImpl
-from lib.Extractor import Extractor
 from lib.AccountsConfig import AccountsConfig
 from lib.PartiesConfig import PartiesConfig
 from lib.PartyAddressesConfig import PartyAddressesConfig
