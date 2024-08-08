@@ -5,8 +5,8 @@ class AccountsConfig(EntitiesConfig):
 
     @property
     def source_location(self):
-        return self.conf.get("accounts.source.location", self.default_value)
+        return self._get_source_location("accounts.source.location")
 
     @property
     def schema(self):
-        return self.conf.get("accounts.schema", self.default_value)
+        return self._get_schema("accounts.schema")

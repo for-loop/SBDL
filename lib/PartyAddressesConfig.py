@@ -5,8 +5,8 @@ class PartyAddressesConfig(EntitiesConfig):
 
     @property
     def source_location(self):
-        return self.conf.get("address.source.location", self.default_value)
+        return self._get_source_location("address.source.location")
 
     @property
     def schema(self):
-        return self.conf.get("address.schema", self.default_value)
+        return self._get_schema("address.schema")
