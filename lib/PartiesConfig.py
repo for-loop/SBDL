@@ -1,13 +1,12 @@
-class PartiesConfig:
+from lib.EntitiesConfig import EntitiesConfig
 
-    def __init__(self, conf):
-        self.__source_location = conf["party.source.location"]
-        self.__schema = conf["party.schema"]
+
+class PartiesConfig(EntitiesConfig):
 
     @property
     def source_location(self):
-        return self.__source_location
+        return self.conf["party.source.location"]
 
     @property
     def schema(self):
-        return self.__schema
+        return self.conf["party.schema"]
