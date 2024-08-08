@@ -56,6 +56,15 @@ def test_party_addresses_config_throws_when_schema_is_missing():
         party_addresses_config.schema
 
 
+def test_accounts_config_throws_when_value_is_empty_string():
+    expected = ""
+    conf = {"accounts.source.location": expected}
+    accounts_config = AccountsConfig(conf)
+
+    with pytest.raises(MissingSourceLocationError):
+        accounts_config.source_location
+
+
 def test_accounts_config_returns_source_location_in_conf():
     expected_source_location = "source/location/"
     expected_schema = "id int,name, string"
