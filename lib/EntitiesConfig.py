@@ -5,6 +5,7 @@ class EntitiesConfig(metaclass=abc.ABCMeta):
 
     def __init__(self, conf):
         self.conf = conf
+        self.default_value = ""
 
     @property
     @abc.abstractmethod
