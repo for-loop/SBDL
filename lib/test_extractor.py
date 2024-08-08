@@ -16,6 +16,7 @@ from lib.CsvExtractor import CsvExtractor
 from lib.HiveExtractor import HiveExtractor
 from lib.ExtractorFactoryImpl import ExtractorFactoryImpl
 from lib.MissingSchemaError import MissingSchemaError
+from lib.MissingSourceLocationError import MissingSourceLocationError
 
 from lib.AccountsConfig import AccountsConfig
 from lib.PartiesConfig import PartiesConfig
@@ -78,6 +79,34 @@ def test_extract_from_hive_table_when_enable_hive_config_is_true(spark, hive):
 
     assert isinstance(e, HiveExtractor)
     assert df.count() == 2
+
+
+def test_hive_extractor_throws_when_source_location_is_empty_string(spark):
+    conf = {
+        "enable.hive": "true",
+        "accounts.source.location": "",
+        "accounts.schema": "",
+    }
+    f = ExtractorFactoryImpl(conf)
+    e = f.make_extractor(spark)
+    accounts_config = AccountsConfig(conf)
+
+    with pytest.raises(MissingSourceLocationError):
+        df = e.extract(accounts_config)
+
+
+def test_csv_extractor_throws_when_source_location_is_empty_string(spark):
+    conf = {
+        "enable.hive": "false",
+        "accounts.source.location": "",
+        "accounts.schema": "load_date date,active_ind int,account_id string,source_sys string,account_start_date timestamp,legal_title_1 string,legal_title_2 string,tax_id_type string,tax_id string,branch_code string,country string",
+    }
+    f = ExtractorFactoryImpl(conf)
+    e = f.make_extractor(spark)
+    accounts_config = AccountsConfig(conf)
+
+    with pytest.raises(MissingSourceLocationError):
+        df = e.extract(accounts_config)
 
 
 def test_csv_extractor_throws_when_schema_is_missing(spark):
