@@ -4,5 +4,5 @@ from lib.Extractor import Extractor
 
 class HiveExtractor(Extractor):
 
-    def extract(self, source_location) -> DataFrame:
-        return self.spark.sql(f"SELECT * FROM {source_location}")
+    def extract(self, entity_config) -> DataFrame:
+        return self.spark.sql(f"SELECT * FROM {entity_config.source_location}")

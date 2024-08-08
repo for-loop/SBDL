@@ -6,6 +6,9 @@ from lib.logger import Log4j
 from lib.ConfigLoader import get_config
 from lib.ExtractorFactoryImpl import ExtractorFactoryImpl
 from lib.Extractor import Extractor
+from lib.AccountsConfig import AccountsConfig
+from lib.PartiesConfig import PartiesConfig
+from lib.PartyAddressesConfig import PartyAddressesConfig
 
 if __name__ == "__main__":
 
@@ -26,9 +29,13 @@ if __name__ == "__main__":
 
     logger.info("Extracting Source data")
 
-    df_accounts = e.extract(conf["accounts.data.location"])
-    df_parties = e.extract(conf["party.data.location"])
-    df_party_address = e.extract(conf["address.data.location"])
+    accounts_config = AccountsConfig(conf)
+    parties_config = PartiesConfig(conf)
+    party_address_config = PartyAddressesConfig(conf)
+
+    df_accounts = e.extract(accounts_config)
+    df_parties = e.extract(parties_config)
+    df_party_address = e.extract(party_address_config)
 
     logger.info("Extracted Source data")
 
