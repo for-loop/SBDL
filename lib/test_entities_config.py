@@ -4,31 +4,56 @@ from lib.AccountsConfig import AccountsConfig
 from lib.PartiesConfig import PartiesConfig
 from lib.PartyAddressesConfig import PartyAddressesConfig
 
+from lib.MissingSourceLocationError import MissingSourceLocationError
+from lib.MissingSchemaError import MissingSchemaError
 
-def test_accounts_config_returns_empty_string_when_source_location_or_schema_is_missing():
+
+def test_accounts_config_throws_when_source_location_is_missing():
     conf = {}
     accounts_config = AccountsConfig(conf)
 
-    assert accounts_config.source_location == accounts_config.default_value
-    assert accounts_config.schema == accounts_config.default_value
+    with pytest.raises(MissingSourceLocationError):
+        accounts_config.source_location
 
 
-def test_parties_config_returns_empty_string_when_source_location_or_schema_is_missing():
+def test_accounts_config_throws_when_schema_is_missing():
+    conf = {}
+    accounts_config = AccountsConfig(conf)
+
+    with pytest.raises(MissingSchemaError):
+        accounts_config.schema
+
+
+def test_parties_config_throws_when_source_location_is_missing():
     conf = {}
     parties_config = PartiesConfig(conf)
 
-    assert parties_config.source_location == parties_config.default_value
-    assert parties_config.schema == parties_config.default_value
+    with pytest.raises(MissingSourceLocationError):
+        parties_config.source_location
 
 
-def test_party_addresses_config_returns_empty_string_when_source_location_or_schema_is_missing():
+def test_parties_config_throws_when_schema_is_missing():
+    conf = {}
+    parties_config = PartiesConfig(conf)
+
+    with pytest.raises(MissingSchemaError):
+        parties_config.schema
+
+
+def test_party_addresses_config_throws_when_source_location_is_missing():
     conf = {}
     party_addresses_config = PartyAddressesConfig(conf)
 
-    assert (
-        party_addresses_config.source_location == party_addresses_config.default_value
-    )
-    assert party_addresses_config.schema == party_addresses_config.default_value
+    with pytest.raises(MissingSourceLocationError):
+        party_addresses_config.source_location
+
+
+def test_party_addresses_config_throws_when_schema_is_missing():
+    conf = {}
+    party_addresses_config = PartyAddressesConfig(conf)
+
+    with pytest.raises(MissingSchemaError):
+        party_addresses_config.schema
 
 
 def test_accounts_config_returns_source_location_in_conf():
