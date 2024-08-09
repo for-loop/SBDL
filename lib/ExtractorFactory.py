@@ -1,14 +1,11 @@
-from lib.CsvExtractor import CsvExtractor
-from lib.HiveExtractor import HiveExtractor
+import abc
+from lib.Extractor import Extractor
 
 
-class ExtractorFactory:
-
+class ExtractorFactory(metaclass=abc.ABCMeta):
     def __init__(self, conf):
         self.conf = conf
 
-    def make_extractor(self, spark):
-        if self.conf["enable.hive"] == "true":
-            return HiveExtractor(spark)
-
-        return CsvExtractor(spark)
+    @abc.abstractmethod
+    def make_extractor(self, spark) -> Extractor:
+        pass

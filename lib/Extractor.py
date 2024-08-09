@@ -1,5 +1,6 @@
 import abc
 from pyspark.sql import DataFrame
+from lib.EntitiesConfig import EntitiesConfig
 
 
 class Extractor(metaclass=abc.ABCMeta):
@@ -7,5 +8,5 @@ class Extractor(metaclass=abc.ABCMeta):
         self.spark = spark
 
     @abc.abstractmethod
-    def extract(self, source_location) -> DataFrame:
+    def extract(self, entity_config: EntitiesConfig) -> DataFrame:
         pass
