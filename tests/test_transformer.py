@@ -17,20 +17,6 @@ def spark():
     return get_spark_session("LOCAL")
 
 
-def createPartiesDataFrame(spark, rows):
-    return (
-        spark.createDataFrame(rows)
-        .toDF(
-            "load_date",
-            "account_id",
-            "party_id",
-            "relation_type",
-            "relation_start_date",
-        )
-        .repartition(2)
-    )
-
-
 def test_transform_dataframe_with_one_row(spark):
 
     expected_rows = [
