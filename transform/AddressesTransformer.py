@@ -1,7 +1,7 @@
 from pyspark.sql.dataframe import DataFrame
 from pyspark.sql.functions import col, struct
 
-from lib.Transformer import Transformer
+from transform.Transformer import Transformer
 
 
 class AddressesTransformer(Transformer):

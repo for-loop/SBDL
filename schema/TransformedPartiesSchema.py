@@ -7,7 +7,7 @@ from pyspark.sql.types import (
 )
 
 
-class RelationsSchema:
+class TransformedPartiesSchema:
 
     @staticmethod
     def get_schema():

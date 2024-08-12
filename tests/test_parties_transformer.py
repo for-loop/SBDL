@@ -6,10 +6,11 @@ from pyspark.sql.functions import col, lit, struct
 from datetime import datetime
 
 from lib.Utils import get_spark_session
-from lib.PartiesToRelationsTransformer import PartiesToRelationsTransformer
+
+from transform.PartiesTransformer import PartiesTransformer
 
 from schema.PartiesSchema import PartiesSchema
-from schema.RelationsSchema import RelationsSchema
+from schema.TransformedPartiesSchema import TransformedPartiesSchema
 
 
 @pytest.fixture(scope="session")
@@ -34,7 +35,7 @@ def test_transform_dataframe_with_one_row(spark):
     ]
 
     expected = spark.createDataFrame(
-        expected_rows, schema=RelationsSchema.get_schema()
+        expected_rows, schema=TransformedPartiesSchema.get_schema()
     ).repartition(2)
 
     rows = [
@@ -49,7 +50,7 @@ def test_transform_dataframe_with_one_row(spark):
 
     df = spark.createDataFrame(rows, schema=PartiesSchema.get_schema()).repartition(2)
 
-    t = PartiesToRelationsTransformer(spark)
+    t = PartiesTransformer(spark)
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
@@ -83,7 +84,7 @@ def test_transform_dataframe_with_two_rows(spark):
     ]
 
     expected = spark.createDataFrame(
-        expected_rows, schema=RelationsSchema.get_schema()
+        expected_rows, schema=TransformedPartiesSchema.get_schema()
     ).repartition(2)
 
     rows = [
@@ -105,7 +106,7 @@ def test_transform_dataframe_with_two_rows(spark):
 
     df = spark.createDataFrame(rows, schema=PartiesSchema.get_schema()).repartition(2)
 
-    t = PartiesToRelationsTransformer(spark)
+    t = PartiesTransformer(spark)
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
