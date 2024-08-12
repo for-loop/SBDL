@@ -6,7 +6,7 @@ from pyspark.sql.functions import col, lit, struct
 from datetime import datetime
 
 from lib.Utils import get_spark_session
-from lib.Transformer import Transformer
+from lib.PartiesToRelationsTransformer import PartiesToRelationsTransformer
 
 from schema.PartiesSchema import PartiesSchema
 from schema.RelationsSchema import RelationsSchema
@@ -49,7 +49,7 @@ def test_transform_dataframe_with_one_row(spark):
 
     df = spark.createDataFrame(rows, schema=PartiesSchema.get_schema()).repartition(2)
 
-    t = Transformer(spark)
+    t = PartiesToRelationsTransformer(spark)
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
@@ -105,7 +105,7 @@ def test_transform_dataframe_with_two_rows(spark):
 
     df = spark.createDataFrame(rows, schema=PartiesSchema.get_schema()).repartition(2)
 
-    t = Transformer(spark)
+    t = PartiesToRelationsTransformer(spark)
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
