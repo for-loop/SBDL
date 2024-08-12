@@ -5,7 +5,8 @@ from pyspark.sql.types import Row
 from datetime import datetime
 
 from lib.Utils import get_spark_session
-from lib.AddressesTransformer import AddressesTransformer
+
+from transform.AddressesTransformer import AddressesTransformer
 
 from schema.TransformedAddressesSchema import TransformedAddressesSchema
 from schema.AddressesSchema import AddressesSchema
