@@ -8,6 +8,7 @@ from pyspark.sql.types import (
 
 class AddressesSchema:
 
+    @staticmethod
     def get_schema():
         return StructType(
             [
