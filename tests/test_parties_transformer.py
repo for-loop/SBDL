@@ -12,7 +12,7 @@ from transform.PartiesTransformer import PartiesTransformer
 from schema.PartiesSchema import PartiesSchema
 from schema.TransformedPartiesSchema import TransformedPartiesSchema
 from schema.TransformedAddressesSchema import TransformedAddressesSchema
-from schema.TransformedPartyAddressesSchema import TransformedPartyAddressesSchema
+from schema.JoinedPartyAddressesSchema import JoinedPartyAddressesSchema
 
 from tests.test_addresses_transformer import (
     TRANSFORMED_ROW_WITH_ADDRESS1,
@@ -65,7 +65,7 @@ TRANSFORMED_ROW_WITH_PARTY2 = Row(
     },
 )
 
-TRANSFORMED_ROW_WITH_PARTY_ADDRESS1 = Row(
+JOINED_ROW_WITH_PARTY_ADDRESS1 = Row(
     "6982391060",
     [
         {
@@ -100,7 +100,7 @@ TRANSFORMED_ROW_WITH_PARTY_ADDRESS1 = Row(
     ],
 )
 
-TRANSFORMED_ROW_WITH_PARTY_ADDRESSES_OF_COMMON_ACCOUNT_ID = Row(
+JOINED_ROW_WITH_PARTY_ADDRESSES_OF_COMMON_ACCOUNT_ID = Row(
     "6982391060",
     [
         {
@@ -208,8 +208,8 @@ def test_transform_dataframe_with_two_rows(spark):
 def test_join_one_transformed_address(spark):
 
     expected = spark.createDataFrame(
-        [TRANSFORMED_ROW_WITH_PARTY_ADDRESS1],
-        schema=TransformedPartyAddressesSchema.get_schema(),
+        [JOINED_ROW_WITH_PARTY_ADDRESS1],
+        schema=JoinedPartyAddressesSchema.get_schema(),
     ).repartition(2)
 
     transformed_parties = spark.createDataFrame(
@@ -229,8 +229,8 @@ def test_join_one_transformed_address(spark):
 def test_join_two_transformed_addresses_with_common_account_id(spark):
 
     expected = spark.createDataFrame(
-        [TRANSFORMED_ROW_WITH_PARTY_ADDRESSES_OF_COMMON_ACCOUNT_ID],
-        schema=TransformedPartyAddressesSchema.get_schema(),
+        [JOINED_ROW_WITH_PARTY_ADDRESSES_OF_COMMON_ACCOUNT_ID],
+        schema=JoinedPartyAddressesSchema.get_schema(),
     ).repartition(2)
 
     transformed_parties = spark.createDataFrame(

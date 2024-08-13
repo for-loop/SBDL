@@ -41,3 +41,6 @@ class AccountsTransformer(Transformer):
             self._add_insert(col("branch_code"), "contractBranchCode"),
             self._add_insert(col("country"), "contractCountry"),
         ).where(col("active_ind") == 1)
+
+    def join(self, account_df: DataFrame, party_address_df: DataFrame) -> DataFrame:
+        return account_df.join(party_address_df, "account_id", "left_outer")
