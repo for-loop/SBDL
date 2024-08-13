@@ -40,4 +40,4 @@ class AccountsTransformer(Transformer):
             self._add_insert(tax_identifier, "taxIdentifier"),
             self._add_insert(col("branch_code"), "contractBranchCode"),
             self._add_insert(col("country"), "contractCountry"),
-        )
+        ).where(col("active_ind") == 1)
