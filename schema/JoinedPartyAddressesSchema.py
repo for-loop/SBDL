@@ -9,7 +9,7 @@ from pyspark.sql.types import (
 )
 
 
-class TransformedPartyAddressesSchema:
+class JoinedPartyAddressesSchema:
 
     @staticmethod
     def get_schema():
