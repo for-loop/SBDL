@@ -20,44 +20,49 @@ class JoinedAccountPartyAddressesSchema:
                     "contractIdentifier",
                     StructType(
                         [
-                            StructField("operation", StringType()),
+                            StructField("operation", StringType(), False),
                             StructField("newValue", StringType()),
                             StructField("oldValue", NullType()),
                         ]
                     ),
+                    False,
                 ),
                 StructField(
                     "sourceSystemIdentifier",
                     StructType(
                         [
-                            StructField("operation", StringType()),
+                            StructField("operation", StringType(), False),
                             StructField("newValue", StringType()),
                             StructField("oldValue", NullType()),
                         ]
                     ),
+                    False,
                 ),
                 StructField(
                     "contactStartDateTime",
                     StructType(
                         [
-                            StructField("operation", StringType()),
+                            StructField("operation", StringType(), False),
                             StructField("newValue", TimestampType()),
                             StructField("oldValue", NullType()),
                         ]
                     ),
+                    False,
                 ),
                 StructField(
                     "contractTitle",
                     StructType(
                         [
-                            StructField("operation", StringType()),
+                            StructField("operation", StringType(), False),
                             StructField(
                                 "newValue",
                                 ArrayType(
                                     StructType(
                                         [
                                             StructField(
-                                                "contractTitleLineType", StringType()
+                                                "contractTitleLineType",
+                                                StringType(),
+                                                False,
                                             ),
                                             StructField(
                                                 "contractTitleLine", StringType()
@@ -65,16 +70,18 @@ class JoinedAccountPartyAddressesSchema:
                                         ]
                                     ),
                                 ),
+                                False,
                             ),
                             StructField("oldValue", NullType()),
                         ]
                     ),
+                    False,
                 ),
                 StructField(
                     "taxIdentifier",
                     StructType(
                         [
-                            StructField("operation", StringType()),
+                            StructField("operation", StringType(), False),
                             StructField(
                                 "newValue",
                                 StructType(
@@ -83,30 +90,34 @@ class JoinedAccountPartyAddressesSchema:
                                         StructField("taxId", StringType()),
                                     ]
                                 ),
+                                False,
                             ),
                             StructField("oldValue", NullType()),
                         ]
                     ),
+                    False,
                 ),
                 StructField(
                     "contractBranchCode",
                     StructType(
                         [
-                            StructField("operation", StringType()),
+                            StructField("operation", StringType(), False),
                             StructField("newValue", StringType()),
                             StructField("oldValue", NullType()),
                         ]
                     ),
+                    False,
                 ),
                 StructField(
                     "contractCountry",
                     StructType(
                         [
-                            StructField("operation", StringType()),
+                            StructField("operation", StringType(), False),
                             StructField("newValue", StringType()),
                             StructField("oldValue", NullType()),
                         ]
                     ),
+                    False,
                 ),
                 StructField(
                     "partyRelations",
@@ -117,37 +128,48 @@ class JoinedAccountPartyAddressesSchema:
                                     "partyIdentifier",
                                     StructType(
                                         [
-                                            StructField("operation", StringType()),
+                                            StructField(
+                                                "operation", StringType(), False
+                                            ),
                                             StructField("newValue", StringType()),
                                             StructField("oldValue", NullType()),
                                         ]
                                     ),
+                                    False,
                                 ),
                                 StructField(
                                     "partyRelationshipType",
                                     StructType(
                                         [
-                                            StructField("operation", StringType()),
+                                            StructField(
+                                                "operation", StringType(), False
+                                            ),
                                             StructField("newValue", StringType()),
                                             StructField("oldValue", NullType()),
                                         ]
                                     ),
+                                    False,
                                 ),
                                 StructField(
                                     "partyRelationStartDateTime",
                                     StructType(
                                         [
-                                            StructField("operation", StringType()),
+                                            StructField(
+                                                "operation", StringType(), False
+                                            ),
                                             StructField("newValue", TimestampType()),
                                             StructField("oldValue", NullType()),
                                         ]
                                     ),
+                                    False,
                                 ),
                                 StructField(
                                     "partyAddress",
                                     StructType(
                                         [
-                                            StructField("operation", StringType()),
+                                            StructField(
+                                                "operation", StringType(), False
+                                            ),
                                             StructField(
                                                 "newValue",
                                                 StructType(
@@ -175,13 +197,15 @@ class JoinedAccountPartyAddressesSchema:
                                                         ),
                                                     ]
                                                 ),
+                                                False,
                                             ),
                                             StructField("oldValue", NullType()),
                                         ]
                                     ),
                                 ),
                             ]
-                        )
+                        ),
+                        False,
                     ),
                 ),
             ]
