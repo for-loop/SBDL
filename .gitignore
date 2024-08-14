@@ -9,3 +9,5 @@ metastore_db/*
 spark-warehouse/*
 derby.log
 tests/__pycache__/*
+schema/__pycache__/*
+transform/__pycache__/*
