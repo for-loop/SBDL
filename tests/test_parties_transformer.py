@@ -175,7 +175,7 @@ def test_transform_dataframe_with_one_row(spark):
         [ROW_WITH_PARTY1], schema=PartiesSchema.get_schema()
     ).repartition(2)
 
-    t = PartiesTransformer(spark)
+    t = PartiesTransformer()
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
@@ -199,7 +199,7 @@ def test_transform_dataframe_with_two_rows(spark):
         schema=PartiesSchema.get_schema(),
     ).repartition(2)
 
-    t = PartiesTransformer(spark)
+    t = PartiesTransformer()
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
@@ -220,7 +220,7 @@ def test_join_one_transformed_address(spark):
         [TRANSFORMED_ROW_WITH_ADDRESS1], schema=TransformedAddressesSchema.get_schema()
     ).repartition(2)
 
-    t = PartiesTransformer(spark)
+    t = PartiesTransformer()
     actual = t.join(transformed_parties, transformed_addresses)
 
     assert actual.collect() == expected.collect()
@@ -243,7 +243,7 @@ def test_join_two_transformed_addresses_with_common_account_id(spark):
         schema=TransformedAddressesSchema.get_schema(),
     ).repartition(2)
 
-    t = PartiesTransformer(spark)
+    t = PartiesTransformer()
     actual = t.join(transformed_parties, transformed_addresses)
 
     assert actual.collect() == expected.collect()

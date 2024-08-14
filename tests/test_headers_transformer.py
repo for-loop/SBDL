@@ -22,7 +22,7 @@ def test_transform_prepends_header_to_dataframe_with_one_row(spark):
         schema=JoinedAccountPartyAddressesSchema.get_schema(),
     ).repartition(2)
 
-    t = HeadersTransformer(spark)
+    t = HeadersTransformer()
     df = t.transform(data_df)
 
     assert df.schema.fields == TransformedSchema.get_schema().fields
