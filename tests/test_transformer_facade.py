@@ -33,3 +33,32 @@ def test_transform_in_transformer_facade(spark):
     df = tf.transform(accounts_df, parties_df, addresses_df)
 
     assert df.schema.fields == TransformedSchema.get_schema().fields
+
+
+def test_transform_all_test_data_returns_eight_rows(spark):
+
+    accounts_df = (
+        spark.read.format("csv")
+        .option("header", "true")
+        .schema(AccountsSchema.get_schema())
+        .load("test_data/accounts/")
+    )
+
+    parties_df = (
+        spark.read.format("csv")
+        .option("header", "true")
+        .schema(PartiesSchema.get_schema())
+        .load("test_data/parties/")
+    )
+    
+    addresses_df = (
+        spark.read.format("csv")
+        .option("header", "true")
+        .schema(AddressesSchema.get_schema())
+        .load("test_data/party_address/")
+    )
+
+    tf = TransformerFacade()
+    df = tf.transform(accounts_df, parties_df, addresses_df)
+
+    assert df.count() == 8

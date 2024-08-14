@@ -6,6 +6,7 @@ from lib.ExtractorFactoryImpl import ExtractorFactoryImpl
 from lib.AccountsConfig import AccountsConfig
 from lib.PartiesConfig import PartiesConfig
 from lib.PartyAddressesConfig import PartyAddressesConfig
+from transform.TransformerFacade import TransformerFacade
 
 if __name__ == "__main__":
 
@@ -35,6 +36,13 @@ if __name__ == "__main__":
     df_party_address = e.extract(party_address_config)
 
     logger.info("Extracted Source data")
+
+    logger.info("Transforming data")
+
+    transformer = TransformerFacade()
+    transformed_df = transformer.transform(df_accounts, df_parties, df_party_address)
+
+    logger.info("Transformed data")
 
     spark.stop()
     logger.info("Stopped Spark Session")
