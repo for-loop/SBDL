@@ -81,7 +81,7 @@ def test_transform_dataframe_with_one_row(spark):
         [ROW_WITH_ADDRESS1], schema=AddressesSchema.get_schema()
     ).repartition(2)
 
-    t = AddressesTransformer(spark)
+    t = AddressesTransformer()
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
@@ -105,7 +105,7 @@ def test_transform_dataframe_with_two_rows(spark):
         schema=AddressesSchema.get_schema(),
     ).repartition(2)
 
-    t = AddressesTransformer(spark)
+    t = AddressesTransformer()
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()

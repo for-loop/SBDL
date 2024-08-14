@@ -255,7 +255,7 @@ def test_transform_dataframe_with_one_row(spark):
         [ROW_WITH_ACTIVE_ACCOUNT], schema=AccountsSchema.get_schema()
     ).repartition(2)
 
-    t = AccountsTransformer(spark)
+    t = AccountsTransformer()
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
@@ -275,7 +275,7 @@ def test_transform_dataframe_with_one_row_that_is_missing_one_of_the_legal_title
         schema=AccountsSchema.get_schema(),
     ).repartition(2)
 
-    t = AccountsTransformer(spark)
+    t = AccountsTransformer()
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
@@ -296,7 +296,7 @@ def test_transform_dataframe_with_two_rows_that_only_keeps_one_active_account(sp
         schema=AccountsSchema.get_schema(),
     ).repartition(2)
 
-    t = AccountsTransformer(spark)
+    t = AccountsTransformer()
     actual = t.transform(df)
 
     assert actual.collect() == expected.collect()
@@ -318,7 +318,7 @@ def test_join_one_transformed_party_address(spark):
         [JOINED_ROW_WITH_PARTY_ADDRESS1], schema=JoinedPartyAddressesSchema.get_schema()
     ).repartition(2)
 
-    t = AccountsTransformer(spark)
+    t = AccountsTransformer()
     actual = t.join(transformed_accounts, joined_party_address)
 
     assert actual.collect() == expected.collect()
