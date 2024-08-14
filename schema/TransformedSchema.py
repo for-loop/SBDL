@@ -50,37 +50,40 @@ class TransformedSchema:
                                 "contractIdentifier",
                                 StructType(
                                     [
-                                        StructField("operation", StringType()),
+                                        StructField("operation", StringType(), False),
                                         StructField("newValue", StringType()),
                                         StructField("oldValue", NullType()),
                                     ]
                                 ),
+                                False,
                             ),
                             StructField(
                                 "sourceSystemIdentifier",
                                 StructType(
                                     [
-                                        StructField("operation", StringType()),
+                                        StructField("operation", StringType(), False),
                                         StructField("newValue", StringType()),
                                         StructField("oldValue", NullType()),
                                     ]
                                 ),
+                                False,
                             ),
                             StructField(
                                 "contactStartDateTime",
                                 StructType(
                                     [
-                                        StructField("operation", StringType()),
+                                        StructField("operation", StringType(), False),
                                         StructField("newValue", TimestampType()),
                                         StructField("oldValue", NullType()),
                                     ]
                                 ),
+                                False,
                             ),
                             StructField(
                                 "contractTitle",
                                 StructType(
                                     [
-                                        StructField("operation", StringType()),
+                                        StructField("operation", StringType(), False),
                                         StructField(
                                             "newValue",
                                             ArrayType(
@@ -89,6 +92,7 @@ class TransformedSchema:
                                                         StructField(
                                                             "contractTitleLineType",
                                                             StringType(),
+                                                            False,
                                                         ),
                                                         StructField(
                                                             "contractTitleLine",
@@ -97,16 +101,18 @@ class TransformedSchema:
                                                     ]
                                                 )
                                             ),
+                                            False,
                                         ),
                                         StructField("oldValue", NullType()),
                                     ]
                                 ),
+                                False,
                             ),
                             StructField(
                                 "taxIdentifier",
                                 StructType(
                                     [
-                                        StructField("operation", StringType()),
+                                        StructField("operation", StringType(), False),
                                         StructField(
                                             "newValue",
                                             StructType(
@@ -117,30 +123,34 @@ class TransformedSchema:
                                                     StructField("taxId", StringType()),
                                                 ]
                                             ),
+                                            False,
                                         ),
                                         StructField("oldValue", NullType()),
                                     ]
                                 ),
+                                False,
                             ),
                             StructField(
                                 "contractBranchCode",
                                 StructType(
                                     [
-                                        StructField("operation", StringType()),
+                                        StructField("operation", StringType(), False),
                                         StructField("newValue", StringType()),
                                         StructField("oldValue", NullType()),
                                     ]
                                 ),
+                                False,
                             ),
                             StructField(
                                 "contractCountry",
                                 StructType(
                                     [
-                                        StructField("operation", StringType()),
+                                        StructField("operation", StringType(), False),
                                         StructField("newValue", StringType()),
                                         StructField("oldValue", NullType()),
                                     ]
                                 ),
+                                False,
                             ),
                             StructField(
                                 "partyRelations",
@@ -152,7 +162,9 @@ class TransformedSchema:
                                                 StructType(
                                                     [
                                                         StructField(
-                                                            "operation", StringType()
+                                                            "operation",
+                                                            StringType(),
+                                                            False,
                                                         ),
                                                         StructField(
                                                             "newValue", StringType()
@@ -162,13 +174,16 @@ class TransformedSchema:
                                                         ),
                                                     ]
                                                 ),
+                                                False,
                                             ),
                                             StructField(
                                                 "partyRelationshipType",
                                                 StructType(
                                                     [
                                                         StructField(
-                                                            "operation", StringType()
+                                                            "operation",
+                                                            StringType(),
+                                                            False,
                                                         ),
                                                         StructField(
                                                             "newValue", StringType()
@@ -178,13 +193,16 @@ class TransformedSchema:
                                                         ),
                                                     ]
                                                 ),
+                                                False,
                                             ),
                                             StructField(
                                                 "partyRelationStartDateTime",
                                                 StructType(
                                                     [
                                                         StructField(
-                                                            "operation", StringType()
+                                                            "operation",
+                                                            StringType(),
+                                                            False,
                                                         ),
                                                         StructField(
                                                             "newValue", TimestampType()
@@ -194,13 +212,16 @@ class TransformedSchema:
                                                         ),
                                                     ]
                                                 ),
+                                                False,
                                             ),
                                             StructField(
                                                 "partyAddress",
                                                 StructType(
                                                     [
                                                         StructField(
-                                                            "operation", StringType()
+                                                            "operation",
+                                                            StringType(),
+                                                            False,
                                                         ),
                                                         StructField(
                                                             "newValue",
@@ -232,6 +253,7 @@ class TransformedSchema:
                                                                     ),
                                                                 ]
                                                             ),
+                                                            False,
                                                         ),
                                                         StructField(
                                                             "oldValue", NullType()
@@ -240,7 +262,8 @@ class TransformedSchema:
                                                 ),
                                             ),
                                         ]
-                                    )
+                                    ),
+                                    False,
                                 ),
                             ),
                         ]
