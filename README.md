@@ -178,4 +178,4 @@ pytest
 
 ---
 
-This is a capstone project as a part of Udemy's [PySpark - Apache Spark Programming in Python for beginners](https://www.udemy.com/course/apache-spark-programming-in-python-for-beginners/). The app is built from this [GitHub starter repo](https://github.com/LearningJournal/Spark-Programming-In-Python/tree/master/SBDL%20-%20Starter).
+This is a capstone project as a part of Udemy's [PySpark - Apache Spark Programming in Python for beginners](https://www.udemy.com/course/apache-spark-programming-in-python-for-beginners/). The app is built from this [GitHub starter repo](https://github.com/LearningJournal/Spark-Programming-In-Python/tree/c42be849d3404d752c68046de86ce53e8d482e4b/SBDL%20-%20Starter).
