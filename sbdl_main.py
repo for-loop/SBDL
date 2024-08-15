@@ -7,7 +7,7 @@ from lib.AccountsConfig import AccountsConfig
 from lib.PartiesConfig import PartiesConfig
 from lib.PartyAddressesConfig import PartyAddressesConfig
 from transform.TransformerFacade import TransformerFacade
-from load.LoaderFactoryImpl import LoaderFactoryImpl
+from load.LoaderFacade import LoaderFacade
 
 if __name__ == "__main__":
 
@@ -47,9 +47,8 @@ if __name__ == "__main__":
 
     logger.info("Loading data")
 
-    lf = LoaderFactoryImpl(conf)
-    l = lf.make_loader()
-    l.load(transformed_df)
+    lf = LoaderFacade(conf)
+    lf.load(transformed_df)
 
     logger.info("Loaded data")
 
