@@ -50,7 +50,7 @@ def test_transform_all_test_data_returns_eight_rows(spark):
         .schema(PartiesSchema.get_schema())
         .load("test_data/parties/")
     )
-    
+
     addresses_df = (
         spark.read.format("csv")
         .option("header", "true")
