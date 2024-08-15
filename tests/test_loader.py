@@ -1,7 +1,6 @@
 import pytest
 
 import os
-import shutil
 
 from pyspark.sql.types import Row
 
