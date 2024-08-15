@@ -1,6 +1,6 @@
 import abc
 from pyspark.sql import DataFrame
-from lib.EntitiesConfig import EntitiesConfig
+from conf.EntitiesConfig import EntitiesConfig
 
 
 class Extractor(metaclass=abc.ABCMeta):

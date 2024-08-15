@@ -12,14 +12,15 @@ from pyspark.sql.types import (
 
 from lib.Utils import get_spark_session
 
-from lib.CsvExtractor import CsvExtractor
-from lib.HiveExtractor import HiveExtractor
-from lib.ExtractorFactoryImpl import ExtractorFactoryImpl
-from lib.MissingSchemaError import MissingSchemaError
-from lib.MissingSourceLocationError import MissingSourceLocationError
+from extract.CsvExtractor import CsvExtractor
+from extract.HiveExtractor import HiveExtractor
+from extract.ExtractorFactoryImpl import ExtractorFactoryImpl
 
-from lib.AccountsConfig import AccountsConfig
-from lib.PartiesConfig import PartiesConfig
+from exceptions.MissingSchemaError import MissingSchemaError
+from exceptions.MissingSourceLocationError import MissingSourceLocationError
+
+from conf.AccountsConfig import AccountsConfig
+from conf.PartiesConfig import PartiesConfig
 
 
 @pytest.fixture(scope="session")

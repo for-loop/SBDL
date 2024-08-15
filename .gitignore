@@ -8,8 +8,10 @@ __pycache__/*
 metastore_db/*
 spark-warehouse/*
 derby.log
+conf/__pycache__/*
 tests/__pycache__/*
 schema/__pycache__/*
+extract/__pycache__/*
 transform/__pycache__/*
 load/__pycache__/*
 exceptions/__pycache__/*

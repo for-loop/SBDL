@@ -1,6 +1,6 @@
 from pyspark.sql import DataFrame
-from lib.Extractor import Extractor
-from lib.EntitiesConfig import EntitiesConfig
+from extract.Extractor import Extractor
+from conf.EntitiesConfig import EntitiesConfig
 
 
 class HiveExtractor(Extractor):
