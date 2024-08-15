@@ -1,5 +1,5 @@
 from pyspark.sql import DataFrame
-from lib.Extractor import Extractor
+from extract.Extractor import Extractor
 from lib.EntitiesConfig import EntitiesConfig
 
 

@@ -2,10 +2,10 @@ from lib.ArgParser import ArgParser
 from lib.Utils import get_spark_session
 from lib.logger import Log4j
 from lib.ConfigLoader import get_config
-from lib.ExtractorFactoryImpl import ExtractorFactoryImpl
 from lib.AccountsConfig import AccountsConfig
 from lib.PartiesConfig import PartiesConfig
 from lib.PartyAddressesConfig import PartyAddressesConfig
+from extract.ExtractorFactoryImpl import ExtractorFactoryImpl
 from transform.TransformerFacade import TransformerFacade
 from load.LoaderFacade import LoaderFacade
 
