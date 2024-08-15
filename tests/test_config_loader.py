@@ -1,7 +1,7 @@
 import pytest
 
 from lib.Utils import get_spark_session
-from lib import ConfigLoader
+from conf import ConfigLoader
 
 LOCAL_ENV = "LOCAL"
 

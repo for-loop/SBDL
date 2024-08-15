@@ -1,4 +1,4 @@
-from lib.EntitiesConfig import EntitiesConfig
+from conf.EntitiesConfig import EntitiesConfig
 
 
 class PartiesConfig(EntitiesConfig):
