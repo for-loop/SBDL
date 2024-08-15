@@ -11,3 +11,7 @@ derby.log
 tests/__pycache__/*
 schema/__pycache__/*
 transform/__pycache__/*
+load/__pycache__/*
+exceptions/__pycache__/*
+test_data/loader_data/*
+test_data/output*
