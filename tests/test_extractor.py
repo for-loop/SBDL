@@ -19,8 +19,8 @@ from extract.ExtractorFactoryImpl import ExtractorFactoryImpl
 from exceptions.MissingSchemaError import MissingSchemaError
 from exceptions.MissingSourceLocationError import MissingSourceLocationError
 
-from lib.AccountsConfig import AccountsConfig
-from lib.PartiesConfig import PartiesConfig
+from conf.AccountsConfig import AccountsConfig
+from conf.PartiesConfig import PartiesConfig
 
 
 @pytest.fixture(scope="session")

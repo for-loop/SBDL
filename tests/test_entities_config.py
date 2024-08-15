@@ -1,8 +1,8 @@
 import pytest
 
-from lib.AccountsConfig import AccountsConfig
-from lib.PartiesConfig import PartiesConfig
-from lib.PartyAddressesConfig import PartyAddressesConfig
+from conf.AccountsConfig import AccountsConfig
+from conf.PartiesConfig import PartiesConfig
+from conf.PartyAddressesConfig import PartyAddressesConfig
 
 from exceptions.MissingSourceLocationError import MissingSourceLocationError
 from exceptions.MissingSchemaError import MissingSchemaError
