@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from lib.ConfigLoader import get_spark_conf
+from conf.ConfigLoader import get_spark_conf
 
 
 def get_spark_session(env):

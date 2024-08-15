@@ -1,5 +1,5 @@
 import abc
-from lib.Extractor import Extractor
+from extract.Extractor import Extractor
 
 
 class ExtractorFactory(metaclass=abc.ABCMeta):
