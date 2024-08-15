@@ -10,6 +10,7 @@ spark-warehouse/*
 derby.log
 tests/__pycache__/*
 schema/__pycache__/*
+extract/__pycache__/*
 transform/__pycache__/*
 load/__pycache__/*
 exceptions/__pycache__/*

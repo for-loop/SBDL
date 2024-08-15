@@ -1,7 +1,7 @@
-from lib.ExtractorFactory import ExtractorFactory
-from lib.Extractor import Extractor
-from lib.CsvExtractor import CsvExtractor
-from lib.HiveExtractor import HiveExtractor
+from extract.ExtractorFactory import ExtractorFactory
+from extract.Extractor import Extractor
+from extract.CsvExtractor import CsvExtractor
+from extract.HiveExtractor import HiveExtractor
 
 
 class ExtractorFactoryImpl(ExtractorFactory):
