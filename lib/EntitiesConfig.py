@@ -1,7 +1,7 @@
 import abc
 
-from lib.MissingSourceLocationError import MissingSourceLocationError
-from lib.MissingSchemaError import MissingSchemaError
+from exceptions.MissingSourceLocationError import MissingSourceLocationError
+from exceptions.MissingSchemaError import MissingSchemaError
 
 
 class EntitiesConfig(metaclass=abc.ABCMeta):

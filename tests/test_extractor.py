@@ -15,8 +15,9 @@ from lib.Utils import get_spark_session
 from extract.CsvExtractor import CsvExtractor
 from extract.HiveExtractor import HiveExtractor
 from extract.ExtractorFactoryImpl import ExtractorFactoryImpl
-from lib.MissingSchemaError import MissingSchemaError
-from lib.MissingSourceLocationError import MissingSourceLocationError
+
+from exceptions.MissingSchemaError import MissingSchemaError
+from exceptions.MissingSourceLocationError import MissingSourceLocationError
 
 from lib.AccountsConfig import AccountsConfig
 from lib.PartiesConfig import PartiesConfig
