@@ -7,6 +7,7 @@ from lib.AccountsConfig import AccountsConfig
 from lib.PartiesConfig import PartiesConfig
 from lib.PartyAddressesConfig import PartyAddressesConfig
 from transform.TransformerFacade import TransformerFacade
+from load.LoaderFactoryImpl import LoaderFactoryImpl
 
 if __name__ == "__main__":
 
@@ -43,6 +44,14 @@ if __name__ == "__main__":
     transformed_df = transformer.transform(df_accounts, df_parties, df_party_address)
 
     logger.info("Transformed data")
+
+    logger.info("Loading data")
+
+    lf = LoaderFactoryImpl(conf)
+    l = lf.make_loader()
+    l.load(transformed_df)
+
+    logger.info("Loaded data")
 
     spark.stop()
     logger.info("Stopped Spark Session")
